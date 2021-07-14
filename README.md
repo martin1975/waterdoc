@@ -6,6 +6,10 @@ sent to third parties.
 
 The aim of this watermark is to reduce the risk of identity theft.
 
+
+Usage
+-----
+
 Usage example:
 
 ```
@@ -19,3 +23,15 @@ This will convert the following image:
 to this watermarked one:
 
 ![Watermarked ID image](data/myid-watermark.jpg)
+
+
+Dependencies
+------------
+
+This script depends on *[ImageMagick](https://imagemagick.org/)*'s `convert`.
+
+To install *ImageMagick* on a *Debian* based *Linux* machine, including *Ubuntu*, type:
+
+```
+sudo apt --yes install imagemagick
+```
