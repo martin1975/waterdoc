@@ -4,7 +4,7 @@ waterdoc
 This `bash` script is intended to add a watermark on identity documents before being
 sent to third parties.
 
-The aim of this watermark is to prevent identity theft.
+The aim of this watermark is to reduce the risk of identity theft.
 
 Usage example:
 

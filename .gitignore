@@ -3,4 +3,4 @@
 !/data/myid-watermark.jpg
 *.sln
 *.pyproj
-.vs/*
+/.vs/*
