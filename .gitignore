@@ -1,5 +1,6 @@
-data/*
-!data/myid.jpg
-!data/myid-watermark.jpg
+/data/*
+!/data/myid.jpg
+!/data/myid-watermark.jpg
 *.sln
 *.pyproj
+.vs/*
