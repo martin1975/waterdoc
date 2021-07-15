@@ -17,11 +17,14 @@ echo Configuring...
 WD_INTERMEDIATE_WIDTH=3072
 WD_FINAL_WIDTH=1024
 WD_FINAL_SIZE=200kb
-WD_FONT="Helvetica"
 
+# Dates
 WD_DATE_FULL=$( date +"%d/%m/%Y" )
 WD_DATE_MONTH=$( date +"%m/%Y" )
 WD_DATE_YEAR=$( date +"%Y" )
+
+# Watermarks
+WD_WATERMARK_FONT="Helvetica"
 
 WD_WATERMARK_SIDES_HEIGHT=90000
 WD_WATERMARK_SIDES_TEXT=$( printf "${WD_RECIPIENT} ${WD_DATE_MONTH} ${WD_RECIPIENT} ${WD_DATE_MONTH} ${WD_RECIPIENT} ${WD_DATE_MONTH}\n${WD_DATE_MONTH} ${WD_RECIPIENT} ${WD_DATE_MONTH} ${WD_RECIPIENT} ${WD_DATE_MONTH} ${WD_RECIPIENT}\n${WD_RECIPIENT} ${WD_DATE_MONTH} ${WD_RECIPIENT} ${WD_DATE_MONTH} ${WD_RECIPIENT} ${WD_DATE_MONTH}\n${WD_DATE_MONTH} ${WD_RECIPIENT} ${WD_DATE_MONTH} ${WD_RECIPIENT} ${WD_DATE_MONTH} ${WD_RECIPIENT}" )
@@ -29,9 +32,7 @@ WD_WATERMARK_SIDES_TEXT=$( printf "${WD_RECIPIENT} ${WD_DATE_MONTH} ${WD_RECIPIE
 WD_WATERMARK_CENTER_HEIGHT=190000
 WD_WATERMARK_CENTER_TEXT="À l'usage\nEXCLUSIF de :\n\n${WD_RECIPIENT}\n\nDuplicata réalisé le :\n${WD_DATE_FULL}"
 
-###
-### Filenames
-###
+# Filenames
 WD_FILENAME_TMP_FOLDER="/tmp"
 WD_FILENAME_TMP_PREFIX="waterdoc_"
 WD_FILENAME_TMP_DOCUMENT="${WD_FILENAME_TMP_FOLDER}/${WD_FILENAME_TMP_PREFIX}_document.png"
@@ -57,14 +58,14 @@ echo Creating watermarks...
 echo Creating watermark 1/2...
 
 convert -background transparent -flatten -fill '#ddd' \
-    -gravity center -font "{$WD_FONT}" \
+    -gravity center -font "{$WD_WATERMARK_FONT}" \
     pango:"<span size=\"${WD_WATERMARK_SIDES_HEIGHT}\"><b>${WD_WATERMARK_SIDES_TEXT}</b></span>" \
     "${WD_FILENAME_TMP_WATERMARK_1}"
 
 echo Creating watermark 2/2...
 
 convert -background transparent -flatten -fill red \
-    -gravity center -font "{$WD_FONT}" \
+    -gravity center -font "{$WD_WATERMARK_FONT}" \
     pango:"<span size=\"${WD_WATERMARK_CENTER_HEIGHT}\"><b>${WD_WATERMARK_CENTER_TEXT}</b></span>" \
     "${WD_FILENAME_TMP_WATERMARK_2}"
 
