@@ -3,27 +3,43 @@
 # CC0 2021 by Martin KOROLCZUK
 
 
+
 ###
 ### Parameters
 ###
 WD_FILENAME_INPUT="$1"
 WD_RECIPIENT="$2"
 
+
+
 ###
 ### Configuration
 ###
 echo Configuring...
 
-WD_INTERMEDIATE_WIDTH=3072
 WD_FINAL_WIDTH=1024
 WD_FINAL_SIZE=200kb
 
+# Using a high quality intermediate image dimension makes it easier to write
+# fixed-size watermarks (see below: WD_WATERMARK_SIDES_HEIGHT and
+# WD_WATERMARK_CENTER_HEIGHT).
+# If you want to change the intermediate dimension, you have to change the
+# values of WD_WATERMARK_SIDES_HEIGHT and WD_WATERMARK_CENTER_HEIGHT
+# accordingly (see below).
+WD_INTERMEDIATE_WIDTH=3072
+
+
+
 # Dates
+# These dates do not use the system current locale, since it is often set to
+# en_US even in other countries. The below format is intended for fr_FR.
 WD_DATE_FULL=$( date +"%d/%m/%Y" )
 WD_DATE_MONTH=$( date +"%m/%Y" )
 WD_DATE_YEAR=$( date +"%Y" )
 
 # Watermarks
+# Change the value of WD_WATERMARK_CENTER_TEXT (see below) to your favorite
+# language. (The original value is written in French.)
 WD_WATERMARK_FONT="Helvetica"
 
 WD_WATERMARK_SIDES_HEIGHT=90000
@@ -43,6 +59,7 @@ WD_FILENAME_TMP_OUTPUT_2="${WD_FILENAME_TMP_FOLDER}/${WD_FILENAME_TMP_PREFIX}_ou
 WD_FILENAME_TMP_OUTPUT_3="${WD_FILENAME_TMP_FOLDER}/${WD_FILENAME_TMP_PREFIX}_output3.png"
 WD_FILENAME_TMP_OUTPUT_4="${WD_FILENAME_TMP_FOLDER}/${WD_FILENAME_TMP_PREFIX}_output4.jpg"
 WD_FILENAME_OUTPUT=$( echo "${WD_FILENAME_INPUT}" | sed "s/\(.*\)\(\\..*\)/\\1-watermark.jpg/g" )
+
 
 ###
 ### Processing
