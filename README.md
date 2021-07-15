@@ -28,7 +28,7 @@ to this watermarked one:
 Dependencies
 ------------
 
-This script depends on *[ImageMagick](https://imagemagick.org/)*'s `convert`.
+This script depends on *[ImageMagick](https://imagemagick.org/)*'s `convert` and `composite`.
 
 To install *ImageMagick* on a *Debian* based *Linux* machine, including *Ubuntu*, type:
 
