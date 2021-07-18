@@ -20,7 +20,7 @@ This will convert the following image:
 
 ![Source ID image](data/myid.jpg)
 
-to this watermarked one:
+into this watermarked one:
 
 ![Watermarked ID image](data/myid-watermark.jpg)
 
